@@ -1,2 +1,2 @@
 # python_projects
-some python small project
+some python smalls projects.
